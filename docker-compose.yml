@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+  mongodb:
+    build: mongodb/
+    ports:
+     - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=lappis
+      - MONGO_INITDB_ROOT_PASSWORD=lappis
+    volumes:
+      - ./data/mongodb:/data/db
+    networks:
+      - network
+  
+networks:
+  network:
+    driver: bridge 
